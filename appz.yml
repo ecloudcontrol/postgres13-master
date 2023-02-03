@@ -1,7 +1,7 @@
 app:
     name: Postgres Master
     code: POSTGRES
-    notify: appz@cloudcontrol.com
+    notify: nmeeran@ecloudcontrol.com
     
 build:
     version: 13.X
@@ -11,7 +11,7 @@ build:
     image_template: postgres_master-13.3
     
 deploy:
-    context: alpha/DEV
+    context: arun48/DEV
     type: statefulset
     ingress: none
     replicas: 1
@@ -36,10 +36,8 @@ properties:
     POSTGRESQL_SYNCHRONOUS_COMMIT_MODE: on
     POSTGRESQL_NUM_SYNCHRONOUS_REPLICAS: 1
     POSTGRESQL_REP_USER: replica
-    POSTGRESQL_SPRINGBOOTWEB_PASSWORD:
-          vault: POSTGRESQL_SPRINGBOOTWEB_PASSWORD
-    POSTGRESQL_DOTNET_PASSWORD:
-      vault: POSTGRESQL_DOTNET_PASSWORD
+    FEDUSER_PASSWORD:
+      vault: FEDUSER_PASSWORD
     PGPASSWORD: 
       vault: PGPASSWORD
     revision : 76
